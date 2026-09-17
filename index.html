@@ -370,8 +370,11 @@
     padding:32px 34px;
   }
   .project-head{
-    display:flex; justify-content:space-between; align-items:flex-start;
-    gap:20px; margin-bottom:6px; flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) auto;
+    align-items:start;
+    gap:18px;
+    margin-bottom:6px;
   }
   .project-title{
     font-family:var(--font-display);
@@ -379,6 +382,8 @@
   }
   .project-meta{ font-size:12.5px; color:var(--text-soft); margin:0 0 18px; }
   .project-link{
+    justify-self:end;
+    align-self:center;
     font-size:13px;
     color:var(--teal);
     text-decoration:none;
@@ -476,6 +481,8 @@
     .sidebar-bottom{ display:none; }
     main{ padding:36px 22px 60px; }
     .split, .skill-grid, .project-cols{ grid-template-columns:1fr; }
+    .project-head{ grid-template-columns:1fr; }
+    .project-link{ justify-self:start; }
     h2.page-title{ font-size:28px; max-width:none; }
     .cert-row{ grid-template-columns: 60px 1fr; }
     .cert-badge{ grid-column:1 / -1; width:fit-content; }
@@ -831,32 +838,32 @@
   const certs = [
     { type: 'Certificate of Participation', title: '25-hour online English course for the intermediate level', issuer: 'English Course', date: 'June 26, 2024', img: 'english course.jpg' },
     { type: 'Certificate of Achievement', title: 'ESL004: Advanced English as a Second Language', issuer: 'Saylor Academy', date: 'July 16, 2024', img: 'advanced english as a second languages-1.png' },
-    { type: 'Certificate of Achievement', title: 'An Introduction to Cryptography', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 3, 2024', img: 'an-intro-to-cryptography_certificate_of_achievement_ebypmj7-1.png' },
-    { type: 'Certificate of Achievement', title: 'Digital Skills: Artificial Intelligence', issuer: 'Accenture via FutureLearn', date: 'September 1, 2024', img: 'artificial-intelligence_certificate_of_achievement_5fy7fik-1.png' },
+    { type: 'Certificate of Achievement', title: 'An Introduction to Cryptography', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 3, 2024', img: 'An Introduction to Cryptography.png' },
+    { type: 'Certificate of Achievement', title: 'Digital Skills: Artificial Intelligence', issuer: 'Accenture via FutureLearn', date: 'September 1, 2024', img: 'artificial-intelligence_certificate_of_completion.png' },
     { type: 'Certificate of Achievement', title: 'CS120: Bitcoin for Developers I', issuer: 'Saylor Academy', date: 'July 15, 2024', img: 'bitcoin gor developers-1.png' },
-    { type: 'Project Certificate', title: 'Build a computer vision app with Azure Cognitive Services', issuer: 'Microsoft via Coursera', date: 'September 15, 2024', img: 'Build a computer vision app with Azure Cognitive     coursera-1.png' },
+    { type: 'Project Certificate', title: 'Build a computer vision app with Azure Cognitive Services', issuer: 'Microsoft via Coursera', date: 'September 15, 2024', img: 'Build a computer vision app with Azure Cognitive Services-1.png' },
     { type: 'Project Certificate', title: 'Business Analysis & Process Management', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'business analysis and project managment-1.png' },
     { type: 'Certificate of Completion', title: 'Data Analyst Bootcamp 2026', issuer: 'Alexander Freberg', date: '2026', img: 'Data Analyst Bootcamp 2026.png' },
     { type: 'Project Certificate', title: 'Create a Promotional Video using Canva', issuer: 'Coursera Project Network', date: 'September 19, 2024', img: 'Coursera Create a Promotional Video using Canva-1.png' },
     { type: 'Project Certificate', title: 'Azure Synapse SQL Pool – Implement Polybase', issuer: 'Coursera Project Network', date: 'September 21, 2024', img: 'coursera creating external data source-1.png' },
     { type: 'Project Certificate', title: 'Google Ads for Beginners', issuer: 'Coursera Project Network', date: 'September 17, 2024', img: 'Coursera Google Ads for Beginners-1.png' },
     { type: 'Project Certificate', title: 'How to Optimize Your Instagram Account', issuer: 'Coursera Project Network', date: 'September 20, 2024', img: 'Coursera How to Optimize Your Instagram Account-1.png' },
-    { type: 'Project Certificate', title: 'Increase Engagement to your Instagram Business Profile', issuer: 'Coursera Project Network', date: 'September 13, 2024', img: 'Coursera Increase Engagement to your Instagram Business-1.png' },
+    { type: 'Project Certificate', title: 'Increase Engagement to your Instagram Business Profile', issuer: 'Coursera Project Network', date: 'September 13, 2024', img: 'Coursera Increase Engagement to your Instagram Business Profile-1.png' },
     { type: 'Project Certificate', title: 'Introduction to Microsoft Excel', issuer: 'Coursera Project Network', date: 'September 16, 2024', img: 'Coursera Introduction to Microsoft Excel-1.png' },
     { type: 'Project Certificate', title: 'Investment Risk Management', issuer: 'Coursera Project Network', date: 'September 18, 2024', img: 'Coursera Investment Risk Management-1.png' },
-    { type: 'Project Certificate', title: 'Organic Marketing: Facebook Groups For Small Businesses', issuer: 'Coursera Project Network', date: 'September 12, 2024', img: 'Coursera Organic Marketing fc-1.png' },
+    { type: 'Project Certificate', title: 'Organic Marketing: Facebook Groups For Small Businesses', issuer: 'Coursera Project Network', date: 'September 12, 2024', img: 'Coursera Organic Marketing Facebook Groups For Small Businesses-1.png' },
     { type: 'Project Certificate', title: 'Use Canva to Design Digital Course Collateral', issuer: 'Coursera Project Network', date: 'September 22, 2024', img: 'Coursera Use Canva to Design Digital Course Collateral-1.png' },
     { type: 'Project Certificate', title: 'Create a Lead Generation Messenger Chatbot using Chatfuel', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'create a lead generation messenger chatbot using chatfuel-1.png' },
     { type: 'Certificate of Completion', title: 'Digital Leadership in Business', issuer: 'Simplilearn', date: 'July 16, 2024', img: 'digital leadership in business-1.png' },
-    { type: 'Certificate of Achievement', title: 'Digital Skills: Digital Marketing', issuer: 'Accenture via FutureLearn', date: 'September 2, 2024', img: 'digital-skills-digital-marketing_certificate_of_achievement_5bgciwi-1.png' },
+    { type: 'Certificate of Achievement', title: 'Digital Skills: Digital Marketing', issuer: 'Accenture via FutureLearn', date: 'September 2, 2024', img: 'digital-skills-digital-marketing_certificate_of_achievement.png' },
     { type: 'Course Certificate', title: 'First Step Korean', issuer: 'Yonsei University via Coursera', date: 'June 30, 2024', img: 'first step korea-1.png' },
-    { type: 'Certificate of Achievement', title: 'Get Creative with People to Solve Problems', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 1, 2024', img: 'get-creative-with-people-to-solve-problems-sc_certificate_of_achievement_c1wmy9x-1.png' },
+    { type: 'Certificate of Achievement', title: 'Get Creative with People to Solve Problems', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 1, 2024', img: 'Get Creative with People to Solve Problems.png' },
     { type: 'Certificate of Completion', title: 'Front End Development – HTML', issuer: 'Great Learning Academy', date: 'July 2023', img: 'great learning-1.png' },
     { type: 'Certificate of Completion', title: 'Introduction to Cyber Crime', issuer: 'Great Learning Academy', date: 'July 2024', img: 'great learningg-1.png' },
     { type: 'Social Media Certified', title: 'Inbound social media strategy', issuer: 'HubSpot Academy', date: 'Valid Sep 22, 2024 – Oct 22, 2026', img: 'hotspot social media course.png' },
-    { type: 'Certificate of Achievement', title: 'How to Get into AI', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 7, 2024', img: 'how-to-get-into-ai_certificate_of_achievement_24n3fsp-1.png' },
-    { type: 'Certificate of Achievement', title: 'How to Get into Robotics', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 5, 2024', img: 'how-to-get-into-robotics_certificate_of_achievement_qjievel-1.png' },
-    { type: 'Certificate of Achievement', title: 'How to Get into Software Development', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'August 27, 2024', img: 'how-to-get-into-software-development_certificate_of_achievement_0c16wnd (1)-1.png' },
+    { type: 'Certificate of Achievement', title: 'How to Get into AI', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 7, 2024', img: 'how-to-get-into-ai.png' },
+    { type: 'Certificate of Achievement', title: 'How to Get into Robotics', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'September 5, 2024', img: 'how-to-get-into-robotics.png' },
+    { type: 'Certificate of Achievement', title: 'How to Get into Software Development', issuer: 'University of Leeds / Click Start / Institute of Coding via FutureLearn', date: 'August 27, 2024', img: 'how-to-get-into-software-development.png' },
     { type: 'Certificate of Completion', title: 'Instagram Marketing Basics Course', issuer: 'Simplilearn', date: 'July 15, 2024', img: 'instagram marketing basic-1.png' },
     { type: 'Certificate of Achievement', title: 'Photo Editing', issuer: 'Mind Luster', date: 'August 27, 2024', img: 'Mindluster_Certificate (1)-1.png' },
     { type: 'Certificate of Achievement', title: 'Communication Skills', issuer: 'Mind Luster', date: 'August 28, 2024', img: 'Mindluster_Certificate comunication skill-1.png' },
@@ -868,17 +875,17 @@
     { type: 'Certificate of Achievement', title: 'Types of programming languages for beginners', issuer: 'Mind Luster', date: 'August 26, 2024', img: 'Mindluster_Certificate-1.png' },
     { type: 'Certificate of Achievement', title: 'CS406: Information Security', issuer: 'Saylor Academy', date: 'September 23, 2024', img: 'saylor  Information Security-1.png' },
     { type: 'Certificate of Achievement', title: 'CS302: Software Engineering', issuer: 'Saylor Academy', date: 'September 4, 2024', img: 'saylor academy software enineering-1.png' },
-    { type: 'Certificate of Achievement', title: 'ESL005: Business-Proficient English as a Second Language', issuer: 'Saylor Academy', date: 'September 25, 2024', img: 'saylor Business-Proficient English as a Second-1.png' },
+    { type: 'Certificate of Achievement', title: 'ESL005: Business-Proficient English as a Second Language', issuer: 'Saylor Academy', date: 'September 25, 2024', img: 'saylor Business-Proficient English as a Second Language-1.png' },
     { type: 'Certificate of Achievement', title: 'CS403: Introduction to Modern Database Systems', issuer: 'Saylor Academy', date: 'September 21, 2024', img: 'saylor Modern Database Systems-1.png' },
     { type: 'Certificate of Completion', title: 'Introduction to Cryptography for Beginners', issuer: 'Simplilearn', date: 'September 24, 2024', img: 'SIMPLI LEARN Introduction to Cryptography for Beginners-1.png' },
-    { type: 'Certificate of Achievement', title: 'An Introduction to Programming Using Python', issuer: 'University of Leeds / Click Start via FutureLearn', date: 'September 5, 2024', img: 'start-coding-today-an-intro-to-python-programming-for-beginners_certificate_of_achievement_es1ls9i-1.png' },
+    { type: 'Certificate of Achievement', title: 'An Introduction to Programming Using Python', issuer: 'University of Leeds / Click Start via FutureLearn', date: 'September 5, 2024', img: 'start-coding-python.png' },
     { type: 'Statement of Participation', title: 'Am I ready to be a distance learner?', issuer: 'OpenLearn / The Open University', date: 'August 23, 2024', img: 'statement of participation-1.png' },
     { type: 'Project Certificate', title: 'Create a Promotional Video using Canva', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'create promotion video using canva-1.png' },
     { type: 'Project Certificate', title: 'Google Ads for Beginners', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'google ad for beginners-1.png' },
     { type: 'Project Certificate', title: 'Increase Engagement to your Instagram Business Profile', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'increase engagment to your instagram business profile-1.png' },
     { type: 'Project Certificate', title: 'Introduction to Microsoft Excel', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'intruduction to ms excel-1.png' },
     { type: 'Project Certificate', title: 'Investment Risk Management', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'invest risk managment-1.png' },
-    { type: 'Project Certificate', title: 'Organic Marketing: Facebook Groups For Small Businesses', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'oranic marketting facebook groups for small business-1.png' },
+    { type: 'Project Certificate', title: 'Organic Marketing: Facebook Groups For Small Businesses', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'oranic marketting facebook groups for small businesses-1.png' },
     { type: 'Project Certificate', title: 'Use Canva to Design Digital Course Collateral', issuer: 'Coursera Project Network', date: 'July 14, 2024', img: 'use canva to design course collteral-1.png' }
   ];
 
@@ -887,7 +894,7 @@
   const parseDate = (dateString) => {
     if (!dateString) return 0;
 
-    const match = dateString.match(/(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2},?\s+\d{4}|\d{4}/i);
+    const match = dateString.match(/(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{1,2},?\s+\d{4}/i);
 
     if (!match) return 0;
 
